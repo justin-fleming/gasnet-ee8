@@ -16,7 +16,7 @@
     <connectionManager id="jdbc/StationSecureDS" minPoolSize="150" maxPoolSize="800" connectionTimeout="1200s" />
     <fileset dir="/config/db2jars/" id="db2jcc4" includes="db2jcc4.jar db2jcc_license_cu.jar"/>
     <dataSource id="jdbc/StationSecureDS" jdbcDriverRef="myJDBCDriver" jndiName="jdbc/StationSecureDS" type="javax.sql.XADataSource"> 
-     <properties databaseName="STSECDB" serverName="XXX" portNumber="50000" user="XXX" password="XXX" driverType="4"/> 
+     <properties databaseName="${DBName}" serverName="${DBHost}" portNumber="${DBPort}" user="${DBUser}" password="${DBPass}" driverType="4"/> 
     </dataSource>
 
     <webApplication contextRoot="/GasNet_ATM_Module" location="${server.config.dir}/apps/GasNet_ATM_Module.war" name="GasNet_ATM_Module"/>
