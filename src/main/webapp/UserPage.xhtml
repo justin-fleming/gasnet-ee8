@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+<title>UserPage</title>
+</h:head>
+
+<h:body>
+  <ui:include src="templatePages/Top.xhtml" />
+  
+  <h:form id="userPageform">
+   Welcome <h:outputText id="output1" value="#{atmBean.myMember.memberId}" /><br/>
+   <hr/>
+   <table>
+    <tr>
+     <td>First Name: </td><td><h:inputText id="input1" value="#{atmBean.myMember.firstName}" /></td>
+     <td>Last Name: </td><td><h:inputText id="input2" value="#{atmBean.myMember.lastName}"/></td>
+    </tr>
+    <tr>
+     <td>Date Joined: </td><td><h:inputText id="input3" value="#{atmBean.myMember.dateJoined}"><f:convertDateTime pattern="dd-MM-yyyy" /></h:inputText></td>
+     <td>Member Location: </td><td><h:inputText id="input4" value="#{atmBean.myMember.location}"/></td>
+    </tr>
+    <tr>
+     <td>Validation ID: </td><td><h:inputText id="input5" value="#{atmBean.myMember.validateMemID}" disabled="true"/></td>
+     <td>Gas Point Balance: </td><td><h:inputText id="input6" value="#{atmBean.myMember.gasPoints}" disabled="true"/></td>
+    </tr>
+    <tr>
+     <td>Credit Card #: </td><td><h:inputText id="input7" value="#{atmBean.ccnum}" readonly="true"/></td>
+    </tr>
+   </table>
+   
+   <h:commandButton id="usepoints" value="Use Gas Points" action="GasPoints.xhtml"/><br/>
+   <h:commandButton id="update" value="Update Profile" action="#{atmBean.updateProfile}"/><br/>
+   <h:commandButton id="logoutbutton" value="Logout" action="#{atmBean.killHttpSession}"/>
+  </h:form>
+
+</h:body>
+</html>

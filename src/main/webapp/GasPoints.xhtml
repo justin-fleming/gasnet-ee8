@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+<title>GasPoints</title>
+</h:head>
+
+<h:body>
+  <ui:include src="templatePages/Top.xhtml" />
+
+  <h:form id="gpform">
+   Welcome <h:outputText id="output1" value="#{atmBean.myMember.memberId}" /><br/>
+   Please choose one of the following options to withdraw, or deposit Gas Points:
+   <hr/>
+   Balance: <h:inputText id="input1" value="#{atmBean.myMember.gasPoints}" disabled="true"/><br/><br/>
+   Deposit Points? <h:inputText id="input2" value="#{atmBean.points_add}"/>  <h:commandButton id="depbutton" value="Deposit" action="#{atmBean.addPoints}"/><br/>
+   Withdraw Points? <h:inputText id="input3" value="#{atmBean.points_wd}"/>  <h:commandButton id="wdbutton" value="Withdraw" action="#{atmBean.usePoints}"/><br/>
+   <h:commandButton id="logoutbutton" value="Logout" action="#{atmBean.killHttpSession}"/>
+  </h:form>
+
+</h:body>
+</html>

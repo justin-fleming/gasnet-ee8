@@ -1,0 +1,5 @@
+-verbose:gc
+-Xdump:heap
+-Xaggressive
+-Xverbosegclog:/logs/verbosegc.%seq.log,5,300000
+#attempt 2

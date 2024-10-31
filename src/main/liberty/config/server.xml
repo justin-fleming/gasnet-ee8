@@ -1,0 +1,24 @@
+<server description="GasNetATMServer">
+
+    <!-- Enable features -->
+    <featureManager>
+        <feature>servlet-4.0</feature>
+        <feature>cdi-2.0</feature>
+        <feature>jsf-2.3</feature>
+        <feature>jpa-2.2</feature>
+        <feature>mpConfig-1.1</feature>
+    </featureManager>
+
+    <httpEndpoint host="*" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
+
+    <jdbcDriver id="myJDBCDriver" libraryRef="DB2JCC4LIB"/>
+    <library filesetRef="db2jcc4" id="DB2JCC4LIB"/>
+    <connectionManager id="jdbc/StationSecureDS" minPoolSize="150" maxPoolSize="800" connectionTimeout="1200s" />
+    <fileset dir="/config/db2jars/" id="db2jcc4" includes="db2jcc4.jar db2jcc_license_cu.jar"/>
+    <dataSource id="jdbc/StationSecureDS" jdbcDriverRef="myJDBCDriver" jndiName="jdbc/StationSecureDS" type="javax.sql.XADataSource"> 
+     <properties databaseName="STSECDB" serverName="XXX" portNumber="XXX" user="XXX" password="XXX" driverType="4"/> 
+    </dataSource>
+
+    <webApplication contextRoot="/GasNet_ATM_Module" location="${server.config.dir}/apps/GasNet_ATM_Module.war" name="GasNet_ATM_Module"/>
+
+</server>
