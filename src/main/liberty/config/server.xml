@@ -21,5 +21,4 @@
 
     <webApplication contextRoot="/GasNet_ATM_Module" location="${server.config.dir}/apps/GasNet_ATM_Module.war" name="GasNet_ATM_Module"/>
 
-    
 </server>
